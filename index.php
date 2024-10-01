@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
     <meta charset="utf-8">
@@ -39,10 +37,10 @@
     <script src="librerias/sweetalert.min.js"></script>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event){
-            event.preventDefault();
-            swal("Good job!", "You clicked the button!", "success");
-        });
+        //document.getElementById("loginForm").addEventListener("submit", function(event){
+        // event.preventDefault();
+        //swal("Good job!", "You clicked the button!", "success");
+        // });
     </script>
 
 </body>

@@ -62,7 +62,7 @@
                 data: $('#frmRegistro').serialize(),
                 url: "procesos/usuario/registro/agregarUsuario.php",
                 success:function(respuesta){
-                    alert(respuesta);
+                    console.log(respuesta);
                 }
             });
 

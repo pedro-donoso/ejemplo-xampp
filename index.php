@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./librerias/bootstrap/bootstrap.min.css">
 </head>
 
 <body>
@@ -20,7 +23,7 @@
 
             <form>
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="username">
-                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="password" id="password" class="fadeIn third" name="login" placeholder="password">
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
 

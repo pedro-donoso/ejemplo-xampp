@@ -18,10 +18,10 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
 
-                <form id="frmRegistro">
+                <form id="frmRegistro" method="post" onsubmit="return agregarUsuarioNuevo()">
 
                     <label>Nombre personal</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control">
+                    <input type="text" name="nombre" id="nombre" class="form-control" required="">
                     <label>Fecha de nacimiento</label>
                     <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control">
                     <label>Correo</label>
@@ -52,6 +52,13 @@
     </div>
 
     <script src="librerias/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        function agregarUsuarioNuevo() {
+
+        }
+    </script>
+
 </body>
 
 </html>

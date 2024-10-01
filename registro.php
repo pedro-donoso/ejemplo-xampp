@@ -25,7 +25,7 @@
                     <label>Fecha de nacimiento</label>
                     <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required="">
                     <label>Correo</label>
-                    <input type="text" name="correo" id="correo" class="form-control" required="">
+                    <input type="email" name="email" id="email" class="form-control" required="">
                     <label>Nombre de usuario</label>
                     <input type="text" name="usuario" id="usuario" class="form-control" required="">
                     <label>Contraseña</label>
@@ -62,7 +62,15 @@
                 data: $('#frmRegistro').serialize(),
                 url: "procesos/usuario/registro/agregarUsuario.php",
                 success:function(respuesta){
-                    console.log(respuesta);
+                    respuesta =respuesta.trim();
+
+                    if (respuesta == 1) {
+                        $('#frmRegistro')[0].reset();
+                        swal(":D", "Agregado con exito!", "success");
+                    } else {
+                        swal(":(", "Fallo al agregar!", "error");
+                    }
+
                 }
             });
 

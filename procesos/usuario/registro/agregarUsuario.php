@@ -2,13 +2,17 @@
 
 require_once "../../../clases/Usuario.php";
 
-print_r($_POST);
-
-    $datos = array(
-                $_POST['nombre'], 
-                $_POST['fechaNacimiento'], 
-                $_POST['correo'], 
-                $_POST['usuario'], 
-                $_POST['password']
+$password = sha1($_POST['password']);
+$datos = array(
+                "nombre" => $_POST['nombre'], 
+                "fechaNacimiento" => $_POST['fechaNacimiento'], 
+                "email" => $_POST['email'], 
+                "usuario" => $_POST['usuario'], 
+                "password" => $_POST['password']
             );
+
+   $usuario = new Usuario();
+
+   echo $usuario->agregarUsuario($datos);
+            
 ?>

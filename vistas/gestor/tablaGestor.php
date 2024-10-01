@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="table-responsive">
-            <table>
+            <table class="table table-hover table-dark" id="tablaGestorDataTable">
                 <thead>
                     <tr>
-                        <td>Nombre</td>
-                        <td>Tipo de archivo</td>
-                        <td>Descargar</td>
-                        <td>Visualizar</td>
-                        <td>Eliminar</td>
+                        <th>Nombre</th>
+                        <th>Tipo de archivo</th>
+                        <th>Descargar</th>
+                        <th>Visualizar</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,4 +27,8 @@
     </div>
 </div>
 
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#tablaGestorDataTable').Datatable();
+    });
+</script>

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
+
 <body>
     <div class="wrapper fadeInDown">
         <div id="formContent">
 
             <div class="fadeIn first">
-                <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon" alt="User Icon"/>
+                <img src="https://th.bing.com/th/id/R.b81c0382fdfc29bc4a6603c1846f0acf?rik=AUACzJrX%2f0VCdA&riu=http%3a%2f%2fpngimg.com%2fuploads%2fphp%2fphp_PNG35.png&ehk=SDq0mYWBBsWE3A6HnxdvAQErErsuHxmn50YjvmaL83Q%3d&risl=&pid=ImgRaw&r=0"
+                    id="icon" alt="User Icon" />
                 <h1>Aditya News</h1>
             </div>
 
@@ -28,4 +31,5 @@
 
     </div>
 </body>
+
 </html>

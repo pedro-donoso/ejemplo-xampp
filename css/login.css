@@ -1,6 +1,3 @@
-
-/* BASIC */
-
 html {
     background-color: #56baed;
   }
@@ -11,10 +8,10 @@ html {
   }
   
   a {
-    color: #92badd;
+    color: #327bbb;
     display:inline-block;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 800;
   }
   
   h2 {
@@ -27,10 +24,7 @@ html {
     color: #cccccc;
   }
   
-  
-  
-  /* STRUCTURE */
-  
+    
   .wrapper {
     display: flex;
     align-items: center;
@@ -39,12 +33,13 @@ html {
     width: 100%;
     min-height: 100%;
     padding: 20px;
+    
   }
   
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
-    background: #fff;
+    background: #3cbb57;
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -53,10 +48,11 @@ html {
     -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
     text-align: center;
+    border: #2b28e2 1px solid;
   }
   
   #formFooter {
-    background-color: #f6f6f6;
+    background-color: #c7ba08;
     border-top: 1px solid #dce8f1;
     padding: 25px;
     text-align: center;
@@ -64,9 +60,6 @@ html {
     border-radius: 0 0 10px 10px;
   }
   
-  
-  
-  /* TABS */
   
   h2.inactive {
     color: #cccccc;
@@ -77,14 +70,11 @@ html {
     border-bottom: 2px solid #5fbae9;
   }
   
-  
-  
-  /* FORM TYPOGRAPHY*/
-  
+
   input[type=button], input[type=submit], input[type=reset]  {
-    background-color: #56baed;
+    background-color: #067ab4;
     border: none;
-    color: white;
+    color: rgb(214, 199, 194);
     padding: 15px 80px;
     text-align: center;
     text-decoration: none;
@@ -104,7 +94,7 @@ html {
   }
   
   input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover  {
-    background-color: #39ace7;
+    background-color: #0b557a;
   }
   
   input[type=button]:active, input[type=submit]:active, input[type=reset]:active  {
@@ -175,10 +165,6 @@ html {
     color: #cccccc;
   }
   
-  
-  /* ANIMATIONS */
-  
-  /* Simple CSS3 Fade-in-down Animation */
   .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
@@ -258,7 +244,6 @@ html {
     animation-delay: 1s;
   }
   
-  /* Simple CSS3 Fade-in Animation */
   .underlineHover:after {
     display: block;
     left: 0;
@@ -279,7 +264,7 @@ html {
   }
   
   h1{
-      color:#60a0ff;
+      color:#337ae4;
   }
   
   /* OTHERS */

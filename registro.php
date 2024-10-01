@@ -52,9 +52,6 @@
     </div>
 
     <script src="librerias/sweetalert.min.js"></script>
-
-    
-
 </body>
 
 </html>

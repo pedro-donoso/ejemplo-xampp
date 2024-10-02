@@ -33,7 +33,8 @@
         <a class="nav-link" href="#"> <span class="fa-solid fa-file"></span> Reportes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> <span class="fa-solid fa-right-from-bracket"></span> Salir</a>
+        <a class="nav-link" href="../procesos/usuario/salir.php" style="color: red"> 
+          <span class="fa-solid fa-right-from-bracket"></span> Salir</a>
       </li>
     </ul>
   </div>

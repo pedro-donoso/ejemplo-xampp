@@ -1,15 +1,13 @@
 <?php
 
 session_start();
-
 if (isset($_SESSION["usuario"])) {
     include "header.php";
     ?>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
             <h1 class="display-4">Categorías</h1>
-
             <div class="row">
                 <div class="col-sm-4">
                     <span class="btn btn-primary" data-toggle="modal" data-target="#modalAgregaCategoria">
@@ -17,14 +15,53 @@ if (isset($_SESSION["usuario"])) {
                     </span>
                 </div>
             </div>
-            <hr>
+
             <div class="row">
                 <div class="col-sm-12">
                     <div id="tablaCategorias"></div>
                 </div>
             </div>
+
+            <hr>
+
+
+ <div class="table-responsive">
+    <table class="table table-hover table-dark" id="tablaCategoriaDataTable" class="miTabla">
+        <thead>
+            <tr style="text-align:center">
+                <td>Nombre</td>
+                <td>Fecha</td>
+                <td>Editar</td>
+                <td>Eliminar</td>  
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                    <span class="btn btn-warning btn-sm">
+                    <span class="fa-solid fa-pen-to-square"></span>
+                    </span>
+                </td>
+                <td style="text-align: center">
+                    <span class="btn btn-danger btn-sm">
+                        <span class="fa-solid fa-trash"></span>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
         </div>
+
+
+       
     </div>
+
+    
+
 
     <!-- Modal -->
     <div class="modal fade" id="modalAgregaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -54,17 +91,22 @@ if (isset($_SESSION["usuario"])) {
         </div>
     </div>
 
-    <?php
-    include "footer.php";
-    ?>
+    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+<script src="../librerias/bootstrap/bootstrap.bundle.min.js"></script>
+
+
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#tablaCategorias').load('categorias/tablaCategoria.php');
-        });
-    </script>
+    $(document).ready(function(){
+        $("#tablaCategoriaDataTable").DataTable();
+    });
+</script>
 
 <?php
 

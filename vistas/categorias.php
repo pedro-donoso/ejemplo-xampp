@@ -85,33 +85,25 @@ if (isset($_SESSION["usuario"])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardarCategoria">Guardar</button>
                 </div>
             </div>
         </div>
     </div>
 
     
-
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
-<script src="../librerias/bootstrap/bootstrap.bundle.min.js"></script>
-
-
+<script src="../js/categorias.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
         $("#tablaCategoriaDataTable").DataTable();
+
+        $('#btnGuardarCategoria').click(function(){
+          agregarCategoria();
+        });
     });
 </script>
-
 <?php
-
 } else {
     header("location:../index.php");
 }
-
 ?>

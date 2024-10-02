@@ -55,6 +55,35 @@ class Usuario extends Conectar
             return 0; // Usuario no encontrado
         }
     }
+
+    public function login($usuario, $password){
+        $conexion = Conectar::conexion();
+        $sql = "SELECT count(*) as existeUsuario 
+                FROM t_usuarios 
+                WHERE usuario = '$usuario'
+                AND password = '$password'";
+
+        $result = mysqli_query($conexion, $sql);        
+
+        $respuesta = mysqli_fetch_array($result)["existeUsuario"];
+
+        if ($respuesta > 0) {
+            $_SESSION['usuario'] = $usuario;
+
+            $sql = "SELECT id_usuario 
+                    FROM t_usuarios 
+                    WHERE usuario = '$usuario'
+                    AND password = '$password' ";
+            $result = mysqli_query($conexion, $sql);
+            $idUsuario = mysqli_fetch_row($result)[0];
+
+            $_SESSION["idUsuario"] = $idUsuario;
+
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
 
 ?>

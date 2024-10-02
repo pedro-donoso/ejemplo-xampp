@@ -1,4 +1,5 @@
-<div class="row">
+<div class="container-fluid">
+   <div class="row">
     <div class="col-sm-12">
         <div class="table-responsive">
             <table class="table table-hover table-dark" id="tablaGestorDataTable">
@@ -25,10 +26,7 @@
             </table>
         </div>
     </div>
+</div> 
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#tablaGestorDataTable').Datatable();
-    });
-</script>
+

@@ -56,27 +56,31 @@
     <script src="librerias/sweetalert.min.js"></script>
 
     <script type="text/javascript">
-        function agregarUsuarioNuevo() {
-            $.ajax({
-                method: "POST",
-                data: $('#frmRegistro').serialize(),
-                url: "procesos/usuario/registro/agregarUsuario.php",
-                success:function(respuesta){
-                    respuesta =respuesta.trim();
-
-                    if (respuesta == 1) {
+    function agregarUsuarioNuevo() {
+        $.ajax({
+            method: "POST",
+            data: $('#frmRegistro').serialize(),
+            url: "procesos/usuario/registro/agregarUsuario.php",
+            success: function(respuesta) {
+                respuesta = respuesta.trim();
+                switch (respuesta) {
+                    case '1':
                         $('#frmRegistro')[0].reset();
-                        swal(":D", "Agregado con exito!", "success");
-                    } else {
-                        swal(":(", "Fallo al agregar!", "error");
-                    }
-
+                        swal(":D", "¡Agregado con éxito!", "success");
+                        break;
+                    case '2':
+                        swal("Este usuario ya existe, por favor escribe otro !!!");
+                        break;
+                    default:
+                        swal(":x", "¡Fallo al agregar!", "error");
                 }
-            });
+            }
+        });
 
-            return false;
-        }
-    </script>
+        return false;
+    }
+</script>
+
 
 </body>
 

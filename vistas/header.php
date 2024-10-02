@@ -14,7 +14,7 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-<a class="navbar-brand" href="#">
+<a class="navbar-brand" href="inicio.php">
     <img src="../img/php.png" width="30" height="30" alt="">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +24,7 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"> <span class="fa-solid fa-house"></span> Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="inicio.php"> <span class="fa-solid fa-house"></span> Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="gestor.php"> <span class="fa-solid fa-folder-open"></span> Administrar</a>

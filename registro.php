@@ -8,7 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./librerias/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="librerias/jquery-ui-1.14.0.custom/jquery-ui.css">
+    <link rel="stylesheet" href="librerias/jquery-ui-1.14.0/jquery-ui.theme.css">
+    <link rel="stylesheet" href="librerias/jquery-ui-1.14.0/jquery-ui.css">
 </head>
 
 <body>
@@ -19,7 +20,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
 
-                <form id="frmRegistro" method="post" onsubmit="return agregarUsuarioNuevo()">
+                <form id="frmRegistro" method="post" onsubmit="return agregarUsuarioNuevo()" autocomplete="off" >
 
                     <label>Nombre personal</label>
                     <input type="text" name="nombre" id="nombre" class="form-control" required="">
@@ -53,10 +54,25 @@
     </div>
 
     <script src="librerias/jquery-3.7.1.min.js"></script>
-    <script src="librerias/jquery-ui-1.14.0.custom/jquery-ui.js"></script>
+    <script src="librerias/jquery-ui-1.14.0/jquery-ui.js"></script>
     <script src="librerias/sweetalert.min.js"></script>
 
     <script type="text/javascript">
+
+    $(function(){
+        var fechaA = new Date();
+
+        var yyyy =fechaA.getFullYear();
+
+        $("#fechaNacimiento").datepicker({
+
+            changeMonth: true,
+            changeYear: true,
+            yearRange: '1900:' + yyyy,
+            dateFormat: "yy-mm-dd"
+        });
+    });
+
     function agregarUsuarioNuevo() {
         $.ajax({
             method: "POST",

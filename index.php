@@ -42,9 +42,6 @@
                 data:$("#frmLogin").serialize(),
                 url:"procesos/usuario/login/login.php",
                 success:function(respuesta){
-
-                    alert(respuesta);
-
                     respuesta =respuesta.trim();
                     if (respuesta == 1){
                         window.location = "vistas/inicio.php";

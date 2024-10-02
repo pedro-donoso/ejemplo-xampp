@@ -3,18 +3,20 @@
 session_start();
 
 if (isset($_SESSION["usuario"])) {
-        include "header.php";
-        ?>
+    include "header.php";
+    ?>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
 
-                </div>
             </div>
         </div>
+    </div>
 
-        <?php
-        include "footer.php";
-    }
-    ?>
+    <?php
+    include "footer.php";
+} else {
+    header("location:../index.php");
+}
+?>

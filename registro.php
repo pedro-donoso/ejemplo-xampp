@@ -25,7 +25,7 @@
                     <label>Nombre personal</label>
                     <input type="text" name="nombre" id="nombre" class="form-control" required="">
                     <label>Fecha de nacimiento</label>
-                    <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required="">
+                    <input type="text" name="fechaNacimiento" id="fechaNacimiento" class="form-control" required="" readonly="">
                     <label>Correo</label>
                     <input type="email" name="email" id="email" class="form-control" required="">
                     <label>Nombre de usuario</label>
@@ -69,7 +69,7 @@
             changeMonth: true,
             changeYear: true,
             yearRange: '1900:' + yyyy,
-            dateFormat: "yy-mm-dd"
+            dateFormat: "dd-mm-yy"
         });
     });
 

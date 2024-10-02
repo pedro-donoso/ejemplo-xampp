@@ -17,6 +17,6 @@ if (isset($_SESSION["usuario"])) {
     <?php
     include "footer.php";
 } else {
-    header("location:.../index.php");
+    header("location:../index.php");
 }
 ?>

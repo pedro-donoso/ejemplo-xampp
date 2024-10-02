@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="./librerias/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="librerias/jquery-ui-1.14.0.custom/jquery-ui.css">
 </head>
 
 <body>
@@ -52,7 +53,7 @@
     </div>
 
     <script src="librerias/jquery-3.7.1.min.js"></script>
-
+    <script src="librerias/jquery-ui-1.14.0.custom/jquery-ui.js"></script>
     <script src="librerias/sweetalert.min.js"></script>
 
     <script type="text/javascript">

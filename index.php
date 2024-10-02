@@ -20,7 +20,7 @@
 
             <form method="post" id="frmLogin" onsubmit="return logear()">
                 <input type="text" id="login" class="fadeIn second" name="login" placeholder="username" required="">
-                <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" required="">
+                <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" required="">
                 <input type="submit" class="fadeIn fourth" value="Entrar">
             </form>
 
@@ -37,7 +37,22 @@
 
     <script type="text/javascript">
         function logear(){
-            alert("hola");
+            $.ajax({
+                type:"POST",
+                data:$("#frmLogin").serialize(),
+                url:"procesos/usuario/login/login.php",
+                success:function(respuesta){
+
+                    alert(respuesta);
+
+                    respuesta =respuesta.trim();
+                    if (respuesta == 1){
+                        window.location = "vistas/inicio.php";
+                    } else {
+                        swal(":x", "Fallo al entrar!", "error");
+                    }
+                }
+            });
             return false;
         }
     </script>

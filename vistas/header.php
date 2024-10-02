@@ -26,12 +26,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="inicio.php"> <span class="fa-solid fa-house"></span> Inicio <span class="sr-only">(current)</span></a>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="categorias.php"> <span class="fa-solid fa-file"></span> Categorias</a>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="gestor.php"> <span class="fa-solid fa-folder-open"></span> Administrar</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <span class="fa-solid fa-file"></span> Reportes</a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="../procesos/usuario/salir.php" style="color: red"> 
           <span class="fa-solid fa-right-from-bracket"></span> Salir</a>

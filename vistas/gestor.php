@@ -7,7 +7,7 @@ include "header.php";
 ?>
 
     <div class="jumbotron">
-        <h1 class="display-4">Gestor de archivos</h1>
+        <h1 class="display-5">Gestor de archivos</h1>
         <div id="tablaGestorArchivos"></div>
     </div>
 

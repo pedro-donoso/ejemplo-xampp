@@ -1,6 +1,8 @@
 <?php
-session_start();
-require_once "../../clases/Conexion.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . "/../../clases/Conexion.php";
 
 $idUsuario = $_SESSION["idUsuario"];
 $nombreCategoria = $_POST['nombreCategoria'];
@@ -24,7 +26,6 @@ if ($resultVerificar->num_rows > 0) {
     if ($stmtInsertar->execute()) {
         echo 1; // Categoría agregada con éxito
     } else {
-        // Log the error internamente
         error_log("Error al agregar la categoría: " . $stmtInsertar->error);
         echo 0; 
     }
@@ -34,16 +35,20 @@ $stmtVerificar->close();
 $stmtInsertar->close();
 
 // Mostrar las categorías ordenadas por fecha de inserción
-$sqlMostrar = "SELECT * FROM t_categorias WHERE id_usuario = ? ORDER BY fechaInsert DESC";
+$sqlMostrar = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = ? ORDER BY fechaInsert DESC";
 $stmtMostrar = $conexion->prepare($sqlMostrar);
 $stmtMostrar->bind_param("i", $idUsuario);
 $stmtMostrar->execute();
 $resultMostrar = $stmtMostrar->get_result();
 
+$categorias = [];
 while ($row = $resultMostrar->fetch_assoc()) {
-    echo "Categoría: " . $row['nombre'] . " - Fecha: " . $row['fechaInsert'] . "<br>";
+    $categorias[] = $row;
 }
 
 $stmtMostrar->close();
 $conexion->close();
+
+echo json_encode($categorias);
 ?>
+

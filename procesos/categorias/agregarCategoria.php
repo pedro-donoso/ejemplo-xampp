@@ -1,15 +1,13 @@
 <?php
-
 session_start();
+require_once "../../clases/Conexion.php";
 
-require_once "../../clases/Categorias.php";
-$Categorias = new Categorias();
+$idUsuario = $_SESSION["idUsuario"];
+$nombreCategoria = $_POST['nombreCategoria'];
 
-$datos = array(
-        "idUsuario"=> $_SESSION["idUsuario"],
-        "categoria"=> $_POST["categoria"]
-);
+$conexion = new Conectar();
+$conexion = $conexion->conexion();
 
-echo $Categorias->agregarCategoria($datos);
-
+$sql = "INSERT INTO t_categorias (id_usuario, nombre, fechaInsert) VALUES ('$idUsuario', '$nombreCategoria', NOW())";
+echo mysqli_query($conexion, $sql);
 ?>

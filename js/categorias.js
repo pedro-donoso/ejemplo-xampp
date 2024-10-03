@@ -1,30 +1,20 @@
-function agregarCategoria(){
-    var categoria = $("#nombreCategoria").val();
+function agregarCategoria() {
+    var nombreCategoria = $('#nombreCategoria').val();
 
-    if(categoria == "") {
-        swal("Debes agregar una categoria");
-        return false;
-    } else {
-        $.ajax({
-            type:"POST",
-            data:"categoria=" + categoria,
-            url:"../procesos/categorias/agregarCategoria.php",
-            success:function(respuesta){
-                console.log("Respuesta del servidor: " + respuesta); // Mensaje de depuración
-                respuesta = respuesta.trim();
-                if (respuesta == 1) {
-                    $("#nombreCategoria").val("");
-                    swal(":D", "Categoría guardada con éxito!", "success");
-                } else {
-                    swal(":x", "Fallo al guardar la categoría!", "error");
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("Error en la solicitud AJAX: " + error); // Mensaje de depuración
-                swal(":x", "Error en la solicitud AJAX!", "error");
+    $.ajax({
+        type: "POST",
+        data: { nombreCategoria: nombreCategoria },
+        url: "../procesos/categorias/agregarCategoria.php",
+        success: function(response) {
+            if (response == 1) {
+                $('#frmCategorias')[0].reset();
+                $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php');
+            } else {
+                alert("Error al agregar categoría");
             }
-        });
-    }
+        }
+    });
 }
+
 
 

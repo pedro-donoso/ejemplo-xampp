@@ -3,6 +3,14 @@
 session_start();
 if (isset($_SESSION["usuario"])) {
     include "header.php";
+    require_once __DIR__ . "../../clases/Conexion.php"; // Ajuste de la ruta
+    $idUsuario = $_SESSION["idUsuario"];
+    $conexion = new Conectar();
+    $conexion = $conexion->conexion();
+
+    if (!$conexion) {
+        die("Error en la conexión: " . mysqli_connect_error());
+    }
     ?>
 
     <div class="container">
@@ -24,44 +32,49 @@ if (isset($_SESSION["usuario"])) {
 
             <hr>
 
+            <div class="table-responsive">
+                <table class="table table-hover table-dark" id="tablaCategoriaDataTable">
+                    <thead>
+                        <tr style="text-align:center">
+                            <td>Nombre</td>
+                            <td>Fecha</td>
+                            <td>Editar</td>
+                            <td>Eliminar</td>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario'";
+                        $result = mysqli_query($conexion, $sql);
 
- <div class="table-responsive">
-    <table class="table table-hover table-dark" id="tablaCategoriaDataTable" class="miTabla">
-        <thead>
-            <tr style="text-align:center">
-                <td>Nombre</td>
-                <td>Fecha</td>
-                <td>Editar</td>
-                <td>Eliminar</td>  
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td style="text-align: center">
-                    <span class="btn btn-warning btn-sm">
-                    <span class="fa-solid fa-pen-to-square"></span>
-                    </span>
-                </td>
-                <td style="text-align: center">
-                    <span class="btn btn-danger btn-sm">
-                        <span class="fa-solid fa-trash"></span>
-                    </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+                        if (!$result) {
+                            die("Error en la consulta: " . mysqli_error($conexion));
+                        }
 
+                        while ($mostrar = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $mostrar['nombre']; ?></td>
+                                <td><?php echo $mostrar['fechaInsert']; ?></td>
+                                <td style="text-align: center;">
+                                    <span class="btn btn-warning btn-sm">
+                                        <span class="fa-solid fa-pen-to-square"></span>
+                                    </span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span class="btn btn-danger btn-sm">
+                                        <span class="fa-solid fa-trash"></span>
+                                    </span>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-
-       
     </div>
-
-    
-
 
     <!-- Modal -->
     <div class="modal fade" id="modalAgregaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -71,17 +84,14 @@ if (isset($_SESSION["usuario"])) {
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nueva categoría</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
                 <div class="modal-body">
-
-                <form id="frmCategorias">
-                    <label>Nombre de la categoría</label>
-                    <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control">
-                </form>
-
-
+                    <form id="frmCategorias">
+                        <label>Nombre de la categoría</label>
+                        <input type="text" name="nombreCategoria" id="nombreCategoria" class="form-control">
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -91,19 +101,21 @@ if (isset($_SESSION["usuario"])) {
         </div>
     </div>
 
-    
-<script src="../js/categorias.js"></script>
+    <!-- Incluye tus scripts aquí -->
+    <script src="../js/categorias.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $("#tablaCategoriaDataTable").DataTable();
-
         $('#btnGuardarCategoria').click(function(){
-          agregarCategoria();
+            agregarCategoria();
         });
     });
-</script>
-<?php
+    </script>
+
+    <?php
 } else {
     header("location:../index.php");
 }
 ?>
+
+
+

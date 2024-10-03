@@ -37,7 +37,7 @@ if (!$result) {
                     </span>
                 </td>
                 <td style="text-align: center">
-                    <span class="btn btn-danger btn-sm">
+                    <span class="btn btn-danger btn-sm" onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
                         <i class="fas fa-trash"></i>
                     </span>
                 </td>
@@ -46,4 +46,7 @@ if (!$result) {
         </tbody>
     </table>
 </div>
+
+
+
 

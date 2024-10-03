@@ -12,9 +12,10 @@ if (isset($_SESSION["usuario"])) {
                     <span class="btn btn-primary" data-toggle="modal" data-target="#modalAgregaCategoria">
                         <span class="fa-solid fa-plus"></span> Agregar nueva categoria
                     </span>
+
                 </div>
             </div>
-
+            <br>
             <div class="row">
                 <div class="col-sm-12">
                     <div id="tablaCategorias">
@@ -26,7 +27,8 @@ if (isset($_SESSION["usuario"])) {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalAgregaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalAgregaCategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -51,13 +53,13 @@ if (isset($_SESSION["usuario"])) {
 
     <script src="../js/categorias.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-        $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php');
+        $(document).ready(function () {
+            $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php');
 
-        $('#btnGuardarCategoria').click(function(){
-            agregarCategoria();
+            $('#btnGuardarCategoria').click(function () {
+                agregarCategoria();
+            });
         });
-    });
     </script>
     <?php
 } else {

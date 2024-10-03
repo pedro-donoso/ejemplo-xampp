@@ -24,7 +24,7 @@ if ($resultVerificar->num_rows > 0) {
     if ($stmtInsertar->execute()) {
         echo 1; // Categoría agregada con éxito
     } else {
-        // Log the error internally
+        // Log the error internamente
         error_log("Error al agregar la categoría: " . $stmtInsertar->error);
         echo 0; 
     }
@@ -32,6 +32,18 @@ if ($resultVerificar->num_rows > 0) {
 
 $stmtVerificar->close();
 $stmtInsertar->close();
+
+// Mostrar las categorías ordenadas por fecha de inserción
+$sqlMostrar = "SELECT * FROM t_categorias WHERE id_usuario = ? ORDER BY fechaInsert DESC";
+$stmtMostrar = $conexion->prepare($sqlMostrar);
+$stmtMostrar->bind_param("i", $idUsuario);
+$stmtMostrar->execute();
+$resultMostrar = $stmtMostrar->get_result();
+
+while ($row = $resultMostrar->fetch_assoc()) {
+    echo "Categoría: " . $row['nombre'] . " - Fecha: " . $row['fechaInsert'] . "<br>";
+}
+
+$stmtMostrar->close();
 $conexion->close();
 ?>
-

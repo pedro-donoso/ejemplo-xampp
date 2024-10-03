@@ -8,7 +8,7 @@ $idUsuario = $_SESSION["idUsuario"];
 $conexion = new Conectar();
 $conexion = $conexion->conexion();
 
-$sql = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario'";
+$sql = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario' ORDER BY fechaInsert DESC";
 $result = mysqli_query($conexion, $sql);
 
 if (!$result) {

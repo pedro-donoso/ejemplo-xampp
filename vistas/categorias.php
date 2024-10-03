@@ -95,8 +95,6 @@ if (isset($_SESSION["usuario"])) {
 <script src="../js/categorias.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $("#tablaCategoriaDataTable").DataTable();
-
         $('#btnGuardarCategoria').click(function(){
           agregarCategoria();
         });

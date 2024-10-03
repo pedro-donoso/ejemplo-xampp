@@ -1,7 +1,9 @@
-<?php 
+<?php
 
-class Conectar {
-    public function conexion() {
+class Conectar
+{
+    public function conexion()
+    {
         $servidor = "localhost";
         $usuario = "root";
         $password = "";
@@ -9,9 +11,10 @@ class Conectar {
 
         $conexion = mysqli_connect(
             $servidor,
-         $usuario,
-          $password,
-           $base);
+            $usuario,
+            $password,
+            $base
+        );
 
         if (!$conexion) {
             die("Error de conexión: " . mysqli_connect_error());

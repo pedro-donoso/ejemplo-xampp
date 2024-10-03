@@ -1,22 +1,27 @@
 <?php
-require_once __DIR__ . "../../../clases/Conexion.php";
+session_start();
+require_once "../../clases/Conexion.php";
 
-$idCategoria = filter_input(INPUT_POST, "idCategoria", FILTER_VALIDATE_INT);
-
-if ($idCategoria === false) {
-    echo "Error: ID de categoría no válido";
-    exit;
-}
+$idCategoria = $_POST['idCategoria'];
 
 $conexion = new Conectar();
 $conexion = $conexion->conexion();
 
-$stmt = $conexion->prepare("DELETE FROM t_categorias WHERE id_categoria = ?");
-$stmt->bind_param("i", $idCategoria);
+try {
+    $sql = "DELETE FROM t_categorias WHERE id_categoria = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("i", $idCategoria);
+    $stmt->execute();
 
-if (!$stmt->execute()) {
-    echo "Error al eliminar la categoría: " . $stmt->error;
-} else {
-    echo "1";
+    if ($stmt->affected_rows > 0) {
+        http_response_code(200); // Devuelve un código de respuesta HTTP 200 OK
+        echo "Categoría eliminada con éxito";
+    } else {
+        http_response_code(404); // Devuelve un código de respuesta HTTP 404 Not Found
+        echo "No se pudo eliminar la categoría";
+    }
+} catch (Exception $e) {
+    http_response_code(500); // Devuelve un código de respuesta HTTP 500 Internal Server Error
+    echo "Error: " . $e->getMessage();
+    exit;
 }
-?>

@@ -27,4 +27,20 @@ function agregarCategoria(){
     }
 }
 
+function eliminarCategoria(idCategoria) {
+    $.ajax({
+        type: "POST",
+        url: "eliminar_categoria.php",
+        data: {idCategoria: idCategoria},
+        success: function(response) {
+            // Actualiza la tabla después de la eliminación
+            $("#tablaCategoriasDataTable").DataTable().ajax.reload();
+            console.log("Categoría eliminada con éxito");
+        },
+        error: function(xhr, status, error) {
+            console.log("Error al eliminar la categoría: " + error);
+        }
+    });
+}
+
 

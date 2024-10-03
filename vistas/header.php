@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
-<body>
+<body >
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 <a class="navbar-brand" href="inicio.php">
     <img src="../img/php.png" width="30" height="30" alt="">

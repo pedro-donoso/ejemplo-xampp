@@ -32,7 +32,7 @@ if (!$result) {
                 <td><?php echo $mostrar["nombre"]; ?></td>
                 <td><?php echo $mostrar["fechaInsert"]; ?></td>
                 <td style="text-align: center">
-                    <span class="btn btn-warning btn-sm">
+                <span class="btn btn-danger btn-sm" onclick="obtenerDatosCategoria('<?php echo $idCategoria ?>')">
                         <i class="fas fa-pen-to-square"></i>
                     </span>
                 </td>

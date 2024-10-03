@@ -7,14 +7,12 @@ function agregarCategoria() {
         data: { nombreCategoria: nombreCategoria },
         url: "../procesos/categorias/agregarCategoria.php",
         success: function(response) {
-            if (response == 1) {
+            $('#mensaje').html(response); // Insertar el mensaje HTML en el contenedor
+            if (response.includes("success")) {
                 $('#frmCategorias')[0].reset();
                 $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php', function() {
                     console.log("Tabla recargada después de agregar");
                 });
-                alert("Categoría agregada con éxito");
-            } else {
-                alert("Error al agregar categoría");
             }
             $('#btnGuardarCategoria').prop('disabled', false);
         }
@@ -28,28 +26,23 @@ function eliminarCategoria(idCategoria) {
             data: { idCategoria: idCategoria },
             url: "../procesos/categorias/eliminarCategoria.php",
             success: function(response) {
-                if (response == 1) {
+                $('#mensaje').html(response); // Insertar el mensaje HTML en el contenedor
+                if (response.includes("success")) {
                     $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php', function() {
                         console.log("Tabla recargada después de eliminar");
                     });
-                    alert("Categoría eliminada con éxito");
-                } else {
-                    alert("Error al eliminar categoría");
                 }
             }
         });
     }
 }
 
-$(document).ready(function(){
-    $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php', function() {
-        console.log("Tabla cargada al iniciar");
-    });
 
-    $('#btnGuardarCategoria').click(function(){
-        agregarCategoria();
-    });
-});
+
+
+
+
+
 
 
 

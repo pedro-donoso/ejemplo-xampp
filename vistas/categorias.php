@@ -12,6 +12,7 @@ if (isset($_SESSION["usuario"])) {
         die("Error en la conexión: " . mysqli_connect_error());
     }
     ?>
+    
 
     <div class="container">
         <div class="jumbotron jumbotron-fluid">

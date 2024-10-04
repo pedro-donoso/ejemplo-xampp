@@ -20,6 +20,8 @@ if (!$result) {
 }
 ?>
 
+
+
 <div class="table-responsive">
   <table class="table table-bordered table-dark" id="tablaCategoria">
     <thead>

@@ -30,6 +30,16 @@
             $datos = array("idCategoria" => $categoria["id_categoria"],"nombreCategoria" => $categoria["nombre"]);
             return $datos;
         }
+
+        public function actualizarCategoria($datos){
+            $conexion = Conectar::conexion();
+            $sql = "UPDATE t_categorias SET nombre = ? WHERE id_categoria = ?";
+            $query = $conexion->prepare($sql);
+            $query->bind_param("si", $datos["categoria"], $datos["idCategoria"]);
+            $respuesta = $query->execute();
+            $query->close();
+            return $respuesta;
+        }
     }
 
 ?>

@@ -59,10 +59,8 @@ if (isset($_SESSION["usuario"])) {
         </div>
     </div>
 
-
-
-
-<!-- Modal -->
+    <!-- Modal -->
+    <!-- Modal -->
 <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -75,36 +73,24 @@ if (isset($_SESSION["usuario"])) {
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="idCategoria" class="col-form-label">ID:</label>
-            <input type="text" class="form-control" id="idCategoria" readonly>
+            <label for="categoriaActual" class="col-form-label">Categoría Actual:</label>
+            <input type="text" class="form-control" id="categoriaActual" name="categoriaActual" readonly>
           </div>
           <div class="form-group">
-            <label for="categoriaU" class="col-form-label">Nombre Categoría:</label>
-            <input type="text" class="form-control" id="categoriaU">
+            <label for="categoriaNueva" class="col-form-label">Nueva Categoría:</label>
+            <input type="text" class="form-control" id="categoriaNueva" name="categoriaNueva">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarUpedateCategoria">Cerrar</button>
+        <button type="button" class="btn btn-warning" id="btnActualizaCategoria">Actualizar</button>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
     <script src="../js/categorias.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#tablaCategorias").load("../vistas/categorias/tablaCategoria.php");
-
-            $("#btnGuardarCategoria").click(function () {
-                agregarCategoria();
-            });
-        });
-    </script>
 
     <?php
 } else {

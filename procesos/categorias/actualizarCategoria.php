@@ -1,13 +1,23 @@
-<?php 
+<?php
+require_once __DIR__ . "../../clases/Conexion.php";
 
-require_once "../../clases/Categorias.php";
-$Categorias = new Categorias();
+$conexion = new Conectar();
+$conexion = $conexion->conexion();
 
-$datos = array (
-    "idCategoria" => $_POST["idCategoria"],
-    "categoria"=> $_POST["categoriaU"]
-);
+if (!$conexion) {
+  die("Error en la conexión: " . mysqli_connect_error());
+}
 
-echo $Categorias->actualizarCategoria($datos);
+$idCategoria = $_POST["idCategoria"];
+$categoriaNueva = $_POST["categoriaNueva"];
 
+$query = "UPDATE t_categorias SET nombre = '$categoriaNueva' WHERE id_categoria = '$idCategoria'";
+
+$resultado = mysqli_query($conexion, $query);
+
+if ($resultado) {
+  echo "Categoría actualizada con éxito"; // Imprime un mensaje de éxito
+} else {
+  echo "Error al actualizar la categoría: " . mysqli_error($conexion); // Imprime un mensaje de error
+}
 ?>

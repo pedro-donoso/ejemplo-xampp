@@ -12,7 +12,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       data: { idCategoria: idCategoria, nombreCategoria: nombreCategoria },
-      url: "../procesos/categorias/actualizaCategoria .php",
+      url: "../procesos/categorias/actualizarCategoria.php",
       success: function (respuesta) {
         respuesta = respuesta.trim();
 
@@ -83,7 +83,7 @@ function mostrarCategoriaPorConsola(idCategoria, nombreCategoria) {
         try {
           respuesta = jQuery.parseJSON(respuesta);
           $("#categoriaActual").val(respuesta["nombre"]);
-          $("#categoriaNueva").val(respuesta["nombre"]);
+          $("#categoriaNueva").val(""); // Establece el valor de categoriaNueva en un valor predeterminado
           $('#editCategoryModal').modal('show'); // Show the modal
         } catch (e) {
           console.error("Error parsing JSON:", e);
@@ -94,28 +94,31 @@ function mostrarCategoriaPorConsola(idCategoria, nombreCategoria) {
     });
   }
 
-  function actualizaCategoria() {
+  $("#btnActualizaCategoria").click(function () {
     var idCategoria = $("#idCategoria").val();
     var categoriaNueva = $("#categoriaNueva").val();
+  
+    console.log(idCategoria); // Imprime el valor de idCategoria
+    console.log(categoriaNueva); // Imprime el valor de categoriaNueva
   
     $.ajax({
       type: "POST",
       data: { idCategoria: idCategoria, categoriaNueva: categoriaNueva },
-      url: "../procesos/categorias/actualizaCategoria.php",
-      success: function(respuesta) {
+      url: "../procesos/categorias/actualizarCategoria.php",
+      success: function (respuesta) {
         respuesta = respuesta.trim();
   
         if (respuesta == 1) {
-          $('#tablaCategorias').load("categorias/tablaCategoria.php");
-          
+          $("#tablaCategorias").load("categorias/tablaCategoria.php");
+  
           swal(":D", "¡Actualizado con exito!", "success");
-          $("#editCategoryModal").modal("hide");
+          $("#btnCerrarUpedateCategoria").click();
         } else {
           swal(":x", "Fallo al actualizar", "error");
         }
-      }
+      },
     });
-  }
+  });
 
 $("#btnCerrarUpedateCategoria").click(function() {
     $("#editCategoryModal").modal("hide");

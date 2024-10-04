@@ -60,7 +60,6 @@ if (isset($_SESSION["usuario"])) {
     </div>
 
     <!-- Modal -->
-    <!-- Modal -->
 <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -72,14 +71,14 @@ if (isset($_SESSION["usuario"])) {
       </div>
       <div class="modal-body">
         <form>
-          <div class="form-group">
-            <label for="categoriaActual" class="col-form-label">Categoría Actual:</label>
-            <input type="text" class="form-control" id="categoriaActual" name="categoriaActual" readonly>
-          </div>
-          <div class="form-group">
-            <label for="categoriaNueva" class="col-form-label">Nueva Categoría:</label>
-            <input type="text" class="form-control" id="categoriaNueva" name="categoriaNueva">
-          </div>
+        <div class="form-group">
+  <label for="categoriaActual" class="col-form-label">Categoría Actual:</label>
+  <input type="text" class="form-control" id="categoriaActual" name="categoriaActual" readonly>
+</div>
+<div class="form-group">
+  <label for="categoriaNueva" class="col-form-label">Nueva Categoría:</label>
+  <input type="text" class="form-control" id="categoriaNueva" name="categoriaNueva">
+</div>
         </form>
       </div>
       <div class="modal-footer">

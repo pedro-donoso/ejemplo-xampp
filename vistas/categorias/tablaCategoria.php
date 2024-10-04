@@ -2,7 +2,11 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . "/../../clases/Conexion.php";
+$conexionPath = __DIR__ . "/../../clases/Conexion.php";
+if (!file_exists($conexionPath)) {
+    die("File not found: " . $conexionPath);
+}
+require_once $conexionPath;
 
 $idUsuario = $_SESSION["idUsuario"];
 $conexion = new Conectar();
@@ -33,14 +37,13 @@ if (!$result) {
                     <td><?php echo $mostrar["fechaInsert"]; ?></td>
                     <td style="text-align: center">
                         <span class="btn btn-warning btn-sm"
-                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')" data-toggle="modal" data-target="#modalActualizarCategoria">
+                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')">
                             <i class="fas fa-pen-to-square"></i>
                         </span>
-
                     </td>
                     <td style="text-align: center">
                         <span class="btn btn-danger btn-sm"
-                            onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')" >
+                            onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
                             <i class="fas fa-trash"></i>
                         </span>
                     </td>
@@ -49,3 +52,4 @@ if (!$result) {
         </tbody>
     </table>
 </div>
+

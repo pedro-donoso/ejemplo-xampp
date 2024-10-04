@@ -31,50 +31,6 @@ if (isset($_SESSION["usuario"])) {
                     </div>
                 </div>
             </div>
-
-            <hr>
-
-            <div class="table-responsive">
-                <table class="table table-hover table-dark" id="tablaCategoriaDataTable">
-                    <thead>
-                        <tr style="text-align:center">
-                            <td>Nombre</td>
-                            <td>Fecha</td>
-                            <td>Editar</td>
-                            <td>Eliminar</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sql = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario'";
-                        $result = mysqli_query($conexion, $sql);
-
-                        if (!$result) {
-                            die("Error en la consulta: " . mysqli_error($conexion));
-                        }
-
-                        while ($mostrar = mysqli_fetch_array($result)) {
-                            ?>
-                            <tr>
-                                <td><?php echo $mostrar['nombre']; ?></td>
-                                <td><?php echo $mostrar['fechaInsert']; ?></td>
-                                <td style="text-align: center;">
-                                    <span class="btn btn-warning btn-sm">
-                                        <span class="fa-solid fa-pen-to-square"></span>
-                                    </span>
-                                </td>
-                                <td style="text-align: center;">
-                                    <span class="btn btn-danger btn-sm">
-                                        <span class="fa-solid fa-trash"></span>
-                                    </span>
-                                </td>
-                            </tr>
-                            <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 
@@ -102,6 +58,42 @@ if (isset($_SESSION["usuario"])) {
             </div>
         </div>
     </div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCategoryLabel">Editar Categoría</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="idCategoria" class="col-form-label">ID:</label>
+            <input type="text" class="form-control" id="idCategoria" readonly>
+          </div>
+          <div class="form-group">
+            <label for="categoriaU" class="col-form-label">Nombre Categoría:</label>
+            <input type="text" class="form-control" id="categoriaU">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     <script src="../js/categorias.js"></script>
     <script type="text/javascript">

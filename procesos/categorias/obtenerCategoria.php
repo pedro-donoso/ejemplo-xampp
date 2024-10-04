@@ -1,20 +1,26 @@
 <?php
-
-require_once "Conexion.php";
-require_once "Categorias.php"; // assuming the class is in a separate file
-
-$categoria = new Categorias();
-
-echo "Ingrese el id de la categoría: ";
-$idCategoria = readline();
-
-$resultado = $categoria->obtenerCategoria($idCategoria);
-
-if ($resultado) {
-    echo "Id Categoria: " . $resultado["idCategoria"] . "\n";
-    echo "Nombre Categoria: " . $resultado["nombreCategoria"] . "\n";
-} else {
-    echo "No se encontró la categoría con id $idCategoria\n";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
+$conexionPath = __DIR__ . "/../../clases/Conexion.php";
+if (!file_exists($conexionPath)) {
+    die("File not found: " . $conexionPath);
+}
+require_once $conexionPath;
+
+$idCategoria = $_POST["idCategoria"];
+$conexion = new Conectar();
+$conexion = $conexion->conexion();
+
+$sql = "SELECT id_categoria, nombre FROM t_categorias WHERE id_categoria = '$idCategoria'";
+$result = mysqli_query($conexion, $sql);
+
+if (!$result) {
+    die("Error en la consulta: " . mysqli_error($conexion));
+}
+
+$categoria = mysqli_fetch_assoc($result);
+echo json_encode($categoria);
 ?>
+

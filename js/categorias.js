@@ -12,7 +12,7 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       data: { idCategoria: idCategoria, nombreCategoria: nombreCategoria },
-      url: "../procesos/categorias/actualizaCategoria .php",
+      url: "../procesos/categorias/actualizarCategoria.php",
       success: function (respuesta) {
         respuesta = respuesta.trim();
 

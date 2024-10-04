@@ -3,6 +3,14 @@ session_start();
 
 if (isset($_SESSION["usuario"])) {
     include "header.php";
+    require_once __DIR__ . "../../clases/Conexion.php"; // Ajuste de la ruta
+    $idUsuario = $_SESSION["idUsuario"];
+    $conexion = new Conectar();
+    $conexion = $conexion->conexion();
+
+    if (!$conexion) {
+        die("Error en la conexión: " . mysqli_connect_error());
+    }
     ?>
 
     <div class="container">
@@ -22,6 +30,50 @@ if (isset($_SESSION["usuario"])) {
                         <?php include "../vistas/categorias/tablaCategoria.php"; ?>
                     </div>
                 </div>
+            </div>
+
+            <hr>
+
+            <div class="table-responsive">
+                <table class="table table-hover table-dark" id="tablaCategoriaDataTable">
+                    <thead>
+                        <tr style="text-align:center">
+                            <td>Nombre</td>
+                            <td>Fecha</td>
+                            <td>Editar</td>
+                            <td>Eliminar</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario'";
+                        $result = mysqli_query($conexion, $sql);
+
+                        if (!$result) {
+                            die("Error en la consulta: " . mysqli_error($conexion));
+                        }
+
+                        while ($mostrar = mysqli_fetch_array($result)) {
+                            ?>
+                            <tr>
+                                <td><?php echo $mostrar['nombre']; ?></td>
+                                <td><?php echo $mostrar['fechaInsert']; ?></td>
+                                <td style="text-align: center;">
+                                    <span class="btn btn-warning btn-sm">
+                                        <span class="fa-solid fa-pen-to-square"></span>
+                                    </span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span class="btn btn-danger btn-sm">
+                                        <span class="fa-solid fa-trash"></span>
+                                    </span>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

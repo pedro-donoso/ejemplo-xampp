@@ -83,7 +83,7 @@ function mostrarCategoriaPorConsola(idCategoria, nombreCategoria) {
         try {
           respuesta = jQuery.parseJSON(respuesta);
           $("#categoriaActual").val(respuesta["nombre"]);
-          $("#categoriaNueva").val(respuesta["nombre"]);
+          $("#categoriaNueva").val(""); // Establece el valor de categoriaNueva en un valor predeterminado
           $('#editCategoryModal').modal('show'); // Show the modal
         } catch (e) {
           console.error("Error parsing JSON:", e);

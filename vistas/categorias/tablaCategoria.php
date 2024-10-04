@@ -21,9 +21,9 @@ if (!$result) {
 ?>
 
 <div class="table-responsive">
-  <table class="table table-hover table-dark" id="tablaCategoria">
+  <table class="table table-bordered table-dark" id="tablaCategoria">
     <thead>
-      <tr style="text-align:center">
+      <tr>
         <td>ID</td>
         <td>Nombre</td>
         <td>Fecha</td>

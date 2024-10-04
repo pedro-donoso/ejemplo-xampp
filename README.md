@@ -22,7 +22,9 @@
 
 ## 5. Verificar el Navegador
 - Abre tu navegador y escribe `http://localhost/` en la barra de direcciones. Si ves el icono de XAMPP, significa que Apache está funcionando correctamente.
-![run](https://github.com/user-attachments/assets/7a7e2814-775d-4743-89a5-8055958e8e38)
+  
+![gestor](https://github.com/user-attachments/assets/7b4dcdd5-1d10-4c0f-b036-d0f51e3167a3)
+
 
 
 

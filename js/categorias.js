@@ -41,14 +41,3 @@ function mostrarCategoriaPorConsola(idCategoria, nombreCategoria) {
     console.log("ID Categoría: " + idCategoria);
     console.log("Nombre Categoría: " + nombreCategoria);
 }
-
-
-
-
-
-
-
-
-
-
-

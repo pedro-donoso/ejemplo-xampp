@@ -37,17 +37,11 @@ function eliminarCategoria(idCategoria) {
     }
 }
 
-function obtenerDatosCategoria(idCategoria) {
-    $.ajax({
-        type:"POST",
-        data:"idCategoria=" + idCategoria,
-        url:"../procesos/categorias/obtenerCategoria.php",
-        success:function(respuesta){
-            respuesta = jQuery.parseJSON(respuesta);
-            console.log(respuesta);
-        }
-    })
+function mostrarCategoriaPorConsola(idCategoria, nombreCategoria) {
+    console.log("ID Categoría: " + idCategoria);
+    console.log("Nombre Categoría: " + nombreCategoria);
 }
+
 
 
 

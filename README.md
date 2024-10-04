@@ -26,6 +26,7 @@
 ![gestor](https://github.com/user-attachments/assets/7b4dcdd5-1d10-4c0f-b036-d0f51e3167a3)
 
 
+![cat](https://github.com/user-attachments/assets/95e2a819-6a15-41c8-a909-45cea8b3b32b)
 
 
 

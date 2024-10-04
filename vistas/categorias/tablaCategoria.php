@@ -33,14 +33,14 @@ if (!$result) {
                     <td><?php echo $mostrar["fechaInsert"]; ?></td>
                     <td style="text-align: center">
                         <span class="btn btn-warning btn-sm"
-                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')">
+                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')" data-toggle="modal" data-target="#modalActualizarCategoria">
                             <i class="fas fa-pen-to-square"></i>
                         </span>
 
                     </td>
                     <td style="text-align: center">
                         <span class="btn btn-danger btn-sm"
-                            onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
+                            onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')" >
                             <i class="fas fa-trash"></i>
                         </span>
                     </td>

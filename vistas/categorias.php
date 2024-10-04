@@ -60,30 +60,35 @@ if (isset($_SESSION["usuario"])) {
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editCategoryLabel">Editar Categoría</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="categoriaU" class="col-form-label">Nombre Categoría:</label>
-                            <input type="text" class="form-control" id="categoriaU" name="categoriaU">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarUpedateCategoria">Cerrar</button>
-                    <button type="button" class="btn btn-warning" id="btnActualizaCategoria" onclick="actualizaCategoria()">Actualizar</button>
-                </div>
-            </div>
-        </div>
+    <!-- Modal -->
+<div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCategoryLabel">Editar Categoría</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="categoriaActual" class="col-form-label">Categoría Actual:</label>
+            <input type="text" class="form-control" id="categoriaActual" name="categoriaActual" readonly>
+          </div>
+          <div class="form-group">
+            <label for="categoriaNueva" class="col-form-label">Nueva Categoría:</label>
+            <input type="text" class="form-control" id="categoriaNueva" name="categoriaNueva">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarUpedateCategoria">Cerrar</button>
+        <button type="button" class="btn btn-warning" id="btnActualizaCategoria">Actualizar</button>
+      </div>
     </div>
+  </div>
+</div>
 
     <script src="../js/categorias.js"></script>
 

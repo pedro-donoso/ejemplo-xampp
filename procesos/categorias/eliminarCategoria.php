@@ -1,27 +1,32 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once "../../clases/Conexion.php";
 
 $idCategoria = $_POST['idCategoria'];
+$idUsuario = $_SESSION["idUsuario"];
 
 $conexion = new Conectar();
 $conexion = $conexion->conexion();
 
-try {
-    $sql = "DELETE FROM t_categorias WHERE id_categoria = ?";
-    $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("i", $idCategoria);
-    $stmt->execute();
+$sql = "DELETE FROM t_categorias WHERE id_categoria = '$idCategoria'";
+if (mysqli_query($conexion, $sql)) {
+    // Obtener las categorías actualizadas
+    $sqlMostrar = "SELECT id_categoria, nombre, fechaInsert FROM t_categorias WHERE id_usuario = '$idUsuario' ORDER BY fechaInsert DESC";
+    $resultMostrar = mysqli_query($conexion, $sqlMostrar);
 
-    if ($stmt->affected_rows > 0) {
-        http_response_code(200); // Devuelve un código de respuesta HTTP 200 OK
-        echo "Categoría eliminada con éxito";
+    if ($resultMostrar) {
+        $categorias = [];
+        while ($row = mysqli_fetch_assoc($resultMostrar)) {
+            $categorias[] = $row;
+        }
+        echo json_encode($categorias);
     } else {
-        http_response_code(404); // Devuelve un código de respuesta HTTP 404 Not Found
-        echo "No se pudo eliminar la categoría";
+        echo json_encode([]);
     }
-} catch (Exception $e) {
-    http_response_code(500); // Devuelve un código de respuesta HTTP 500 Internal Server Error
-    echo "Error: " . $e->getMessage();
-    exit;
+} else {
+    echo 0;
 }
+?>
+

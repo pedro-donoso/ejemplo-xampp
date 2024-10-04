@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 if (isset($_SESSION["usuario"])) {
     include "header.php";
     require_once __DIR__ . "../../clases/Conexion.php"; // Ajuste de la ruta
@@ -19,14 +19,16 @@ if (isset($_SESSION["usuario"])) {
             <div class="row">
                 <div class="col-sm-4">
                     <span class="btn btn-primary" data-toggle="modal" data-target="#modalAgregaCategoria">
-                        <span class="fa-solid fa-plus"></span> Agregar nueva categoria
+                        <span class="fa-solid fa-plus"></span> Agregar nueva categoría
                     </span>
                 </div>
             </div>
-
+            <br>
             <div class="row">
                 <div class="col-sm-12">
-                    <div id="tablaCategorias"></div>
+                    <div id="tablaCategorias">
+                        <?php include "../vistas/categorias/tablaCategoria.php"; ?>
+                    </div>
                 </div>
             </div>
 
@@ -39,7 +41,7 @@ if (isset($_SESSION["usuario"])) {
                             <td>Nombre</td>
                             <td>Fecha</td>
                             <td>Editar</td>
-                            <td>Eliminar</td>  
+                            <td>Eliminar</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -84,7 +86,7 @@ if (isset($_SESSION["usuario"])) {
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nueva categoría</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -101,21 +103,20 @@ if (isset($_SESSION["usuario"])) {
         </div>
     </div>
 
-    <!-- Incluye tus scripts aquí -->
     <script src="../js/categorias.js"></script>
     <script type="text/javascript">
-    $(document).ready(function(){
-        $('#btnGuardarCategoria').click(function(){
-            agregarCategoria();
+        $(document).ready(function () {
+            $("#tablaCategorias").load("../vistas/categorias/tablaCategoria.php");
+
+            $("#btnGuardarCategoria").click(function () {
+                agregarCategoria();
+            });
         });
-    });
     </script>
 
     <?php
 } else {
     header("location:../index.php");
+    exit; // Add this to ensure the script stops executing
 }
 ?>
-
-
-

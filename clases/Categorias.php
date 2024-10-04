@@ -18,6 +18,18 @@
 
                     return $respuesta;
         }
+
+        public function obtenerCategoria($idCategoria) {
+            $conexion = Conectar::conexion();
+
+            $sql = "SELECT id_categoria, nombre FROM t_categorias WHERE id_categoria = '$idCategoria'";
+            $result = mysqli_query($conexion, $sql);
+
+            $categoria = mysqli_fetch_array($result);   
+
+            $datos = array("idCategoria" => $categoria["id_categoria"],"nombreCategoria" => $categoria["nombre"]);
+            return $datos;
+        }
     }
 
 ?>

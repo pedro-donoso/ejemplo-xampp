@@ -27,10 +27,7 @@
 
             $categoria = mysqli_fetch_array($result);   
 
-            $datos = array(
-                "idCategoria" => $categoria['id_categoria'],
-                "nombreCategoria" => $categoria["nombre"]
-            );
+            $datos = array("idCategoria" => $categoria["id_categoria"],"nombreCategoria" => $categoria["nombre"]);
             return $datos;
         }
     }

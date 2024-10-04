@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (isset($_SESSION["usuario"])) {
     include "header.php";
     ?>
@@ -10,9 +11,8 @@ if (isset($_SESSION["usuario"])) {
             <div class="row">
                 <div class="col-sm-4">
                     <span class="btn btn-primary" data-toggle="modal" data-target="#modalAgregaCategoria">
-                        <span class="fa-solid fa-plus"></span> Agregar nueva categoria
+                        <span class="fa-solid fa-plus"></span> Agregar nueva categoría
                     </span>
-
                 </div>
             </div>
             <br>
@@ -34,7 +34,7 @@ if (isset($_SESSION["usuario"])) {
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Agregar nueva categoría</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true"></span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -54,16 +54,17 @@ if (isset($_SESSION["usuario"])) {
     <script src="../js/categorias.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#tablaCategorias').load('../vistas/categorias/tablaCategoria.php');
+            $("#tablaCategorias").load("../vistas/categorias/tablaCategoria.php");
 
-            $('#btnGuardarCategoria').click(function () {
+            $("#btnGuardarCategoria").click(function () {
                 agregarCategoria();
             });
         });
     </script>
+
     <?php
 } else {
     header("location:../index.php");
+    exit; // Add this to ensure the script stops executing
 }
 ?>
-

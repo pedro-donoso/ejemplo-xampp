@@ -1,8 +1,20 @@
-<?php 
+<?php
 
-require_once "../../clases/Categorias.php";
-$Categorias = new Categorias();
+require_once "Conexion.php";
+require_once "Categorias.php"; // assuming the class is in a separate file
 
-echo json_encode($Categorias->obtenerCategoria($_POST['idCategoria']));
+$categoria = new Categorias();
+
+echo "Ingrese el id de la categoría: ";
+$idCategoria = readline();
+
+$resultado = $categoria->obtenerCategoria($idCategoria);
+
+if ($resultado) {
+    echo "Id Categoria: " . $resultado["idCategoria"] . "\n";
+    echo "Nombre Categoria: " . $resultado["nombreCategoria"] . "\n";
+} else {
+    echo "No se encontró la categoría con id $idCategoria\n";
+}
 
 ?>

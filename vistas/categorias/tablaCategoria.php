@@ -27,26 +27,25 @@ if (!$result) {
             </tr>
         </thead>
         <tbody>
-            <?php while($mostrar = mysqli_fetch_array($result)) { ?>
-            <tr>
-                <td><?php echo $mostrar["nombre"]; ?></td>
-                <td><?php echo $mostrar["fechaInsert"]; ?></td>
-                <td style="text-align: center">
-                <span class="btn btn-danger btn-sm" onclick="obtenerDatosCategoria('<?php echo $idCategoria ?>')">
-                        <i class="fas fa-pen-to-square"></i>
-                    </span>
-                </td>
-                <td style="text-align: center">
-                    <span class="btn btn-danger btn-sm" onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
-                        <i class="fas fa-trash"></i>
-                    </span>
-                </td>
-            </tr>
+            <?php while ($mostrar = mysqli_fetch_array($result)) { ?>
+                <tr>
+                    <td><?php echo $mostrar["nombre"]; ?></td>
+                    <td><?php echo $mostrar["fechaInsert"]; ?></td>
+                    <td style="text-align: center">
+                        <span class="btn btn-warning btn-sm"
+                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')">
+                            <i class="fas fa-pen-to-square"></i>
+                        </span>
+
+                    </td>
+                    <td style="text-align: center">
+                        <span class="btn btn-danger btn-sm"
+                            onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                    </td>
+                </tr>
             <?php } ?>
         </tbody>
     </table>
 </div>
-
-
-
-

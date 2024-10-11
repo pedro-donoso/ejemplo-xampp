@@ -1,4 +1,34 @@
-## XAMPP
+## XAMPP + MYSQL + PHP
+
+## 0. BASE DE DATOS
+
+### Usuarios:
+  
+![usuarios](https://github.com/user-attachments/assets/047f0f97-ff59-4f74-be39-ddb539f5b1d0)
+
+### Categorias:
+  
+![categorias](https://github.com/user-attachments/assets/0505e91c-ca90-40d2-a630-3c7161d9f9df)
+
+### Foreign Keys:
+
+![foreign keys](https://github.com/user-attachments/assets/4dde046a-cca9-4bf6-848f-35e42289fed8)
+
+### Diagrama:
+
+![diagrama](https://github.com/user-attachments/assets/55e625cf-050e-4e90-aad3-15a7f2c87b36)
+
+### SQL USUARIOS:
+
+![sql1](https://github.com/user-attachments/assets/4e54f2ba-2fe8-40a3-b870-1d8eed48a031)
+
+### SQL CATEGORIAS:
+
+![SQL_CATEGORIAS](https://github.com/user-attachments/assets/2582c9a5-313d-43b6-a7f4-153836026e66)
+
+### SQL FOREIGN KEY:
+
+![SQL_FOREIGNKEY](https://github.com/user-attachments/assets/431b6451-cbe4-4bf2-a3b9-e60e7b8cfea3)
 
 ## 1. Crear un Proyecto
 - Ve a la carpeta `htdocs` dentro de la carpeta de instalación de XAMPP (`C:\xampp\htdocs`) y crea una nueva carpeta para tu proyecto. Puedes empezar a crear tus archivos PHP aquí.
@@ -16,7 +46,7 @@
   ![PANEL](https://github.com/user-attachments/assets/c6d36484-877f-4fb2-84f5-532699db6ab8)
 
 ## 4. En caso de aparecer algún error por Puerto ocupado
-- Ejecuta el administrador de tareas en la vista detalles y Finaliza todas las tareas que contengan el nombre mysql:
+- Ejecuta el administrador de tareas en la vista detalles y Finaliza todas las tareas que contengan el nombre mysql, httpd, host para evitar errores de puertos ocupados:
 
 ![DETALLES](https://github.com/user-attachments/assets/a34365ae-38d8-4453-b9ea-e7076b30701f)
 

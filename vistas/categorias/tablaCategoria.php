@@ -23,10 +23,9 @@ if (!$result) {
 <div class="table-responsive">
     <table class="table table-hover table-dark" id="tablaCategoriaDataTable">
         <thead>
-            <tr style="text-align:center">
+            <tr>
                 <td>Nombre</td>
                 <td>Fecha</td>
-                <td>Editar</td>
                 <td>Eliminar</td>
             </tr>
         </thead>
@@ -35,12 +34,6 @@ if (!$result) {
                 <tr>
                     <td><?php echo $mostrar["nombre"]; ?></td>
                     <td><?php echo $mostrar["fechaInsert"]; ?></td>
-                    <td style="text-align: center">
-                        <span class="btn btn-warning btn-sm"
-                            onclick="mostrarCategoriaPorConsola('<?php echo $mostrar['id_categoria']; ?>', '<?php echo $mostrar['nombre']; ?>')">
-                            <i class="fas fa-pen-to-square"></i>
-                        </span>
-                    </td>
                     <td style="text-align: center">
                         <span class="btn btn-danger btn-sm"
                             onclick="eliminarCategoria('<?php echo $mostrar['id_categoria']; ?>')">
